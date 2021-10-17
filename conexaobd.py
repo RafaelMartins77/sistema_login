@@ -1,5 +1,6 @@
 import sqlite3
 from sqlite3 import Error
+from tkinter import messagebox
 
 # Criando uma concexão com o banco
 def conexao():
@@ -18,14 +19,15 @@ def salvar(conexao, query):
         c = conexao.cursor()
         c.execute(query)
         conexao.commit()
-    except Error as e:
-        print(e)
+    except Error:
+        messagebox.showwarning(title='aviso', message='este usuário ja existe, tente outro')
 
 # buscar todos os usuários do banco
 
 bquery = """
     select usuario, senha from pessoas
 """
+
 def buscar(conexao, query):
     c = conexao.cursor()
     c.execute(query)
