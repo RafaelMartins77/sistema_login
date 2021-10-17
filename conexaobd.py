@@ -16,14 +16,18 @@ vcon = conexao()
 def salvar(conexao, query):
     try:
         c = conexao.cursor()
-        c.excute(query)
+        c.execute(query)
         conexao.commit()
     except Error as e:
         print(e)
 
 # buscar todos os usuários do banco
+
+bquery = """
+    select usuario, senha from pessoas
+"""
 def buscar(conexao, query):
     c = conexao.cursor()
-    c.excute(query)
+    c.execute(query)
     consulta = c.fetchall()
     return consulta

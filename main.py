@@ -1,4 +1,5 @@
 from tkinter import *
+import structure as st
 
 # sistema de login
 
@@ -20,8 +21,8 @@ passwordin.place(x=80, y=40, width='250', height='20')
 
 # botôes
 
-login = Button(window, text='Login')
-signup = Button(window, text='save')
+login = Button(window, text='Login', command=lambda: st.login(userin.get(), passwordin.get()))
+signup = Button(window, text='save', command=lambda: st.save(userin.get(), passwordin.get()))
 login.place(x=280, y=100, width='40', height='20')
 signup.place(x=330, y=100, width='40', height='20')
 
