@@ -21,13 +21,13 @@ status.place(x=20, y=100)
 
 vsenha = StringVar
 userin = Entry(window)
-passwordin = Entry(window, textvariable=vsenha, show='#')
+passwordin = Entry(window, textvariable=vsenha, show='*')
 userin.place(x=80, y=10, width='250', height='20')
 passwordin.place(x=80, y=40, width='250', height='20')
 
 # botôes
 
-login = Button(window, text='Login', command=lambda: st.login(userin, passwordin, status))
+login = Button(window, text='Login', command=lambda: st.estadologin(userin, passwordin, status))
 signup = Button(window, text='save', command=lambda: st.save(userin.get(), passwordin.get()))
 logout = Button(window, text='logout', command=lambda: st.sair(status))
 login.place(x=280, y=100, width='40', height='20')
